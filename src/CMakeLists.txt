@@ -2,7 +2,7 @@
 file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS *.cpp)
 file(GLOB_RECURSE HEADERS CONFIGURE_DEPENDS *.h)
 
-add_executable(Tetris ${SOURCES} ${HEADERS} "Tetromino.cpp" "Tetromino.hpp")
+add_executable(Tetris ${SOURCES} ${HEADERS} "Tetromino.cpp" "Tetromino.hpp"  "TetrominoFactory.hpp" "Board.hpp")
 
 # Link SFML (make sure you install it separately first)
 find_package(SFML 3 COMPONENTS Graphics Window System Network Audio REQUIRED)
