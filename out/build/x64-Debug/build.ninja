@@ -77,6 +77,14 @@ build rebuild_cache: phony CMakeFiles\rebuild_cache.util
 
 build cmake_object_order_depends_target_Tetris: phony || src\CMakeFiles\Tetris.dir
 
+build src\CMakeFiles\Tetris.dir\Game.cpp.obj: CXX_COMPILER__Tetris_Debug C$:\Users\Owner\OneDrive\Desktop\Tetris\src\Game.cpp || cmake_object_order_depends_target_Tetris
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17
+  INCLUDES = -IC:\Users\Owner\OneDrive\Desktop\Tetris\src -external:I C:\Users\Owner\OneDrive\Desktop\Tetris\vcpkg\installed\x64-windows\include -external:W0
+  OBJECT_DIR = src\CMakeFiles\Tetris.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\Tetris.dir
+  TARGET_COMPILE_PDB = src\CMakeFiles\Tetris.dir\
+  TARGET_PDB = src\Tetris.pdb
+
 build src\CMakeFiles\Tetris.dir\Tetromino.cpp.obj: CXX_COMPILER__Tetris_Debug C$:\Users\Owner\OneDrive\Desktop\Tetris\src\Tetromino.cpp || cmake_object_order_depends_target_Tetris
   FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17
   INCLUDES = -IC:\Users\Owner\OneDrive\Desktop\Tetris\src -external:I C:\Users\Owner\OneDrive\Desktop\Tetris\vcpkg\installed\x64-windows\include -external:W0
@@ -101,7 +109,7 @@ build src\CMakeFiles\Tetris.dir\main.cpp.obj: CXX_COMPILER__Tetris_Debug C$:\Use
 #############################################
 # Link the executable src\Tetris.exe
 
-build src\Tetris.exe: CXX_EXECUTABLE_LINKER__Tetris_Debug src\CMakeFiles\Tetris.dir\Tetromino.cpp.obj src\CMakeFiles\Tetris.dir\main.cpp.obj | ..\..\..\vcpkg\installed\x64-windows\debug\lib\sfml-graphics-d.lib ..\..\..\vcpkg\installed\x64-windows\debug\lib\sfml-window-d.lib ..\..\..\vcpkg\installed\x64-windows\debug\lib\sfml-system-d.lib
+build src\Tetris.exe: CXX_EXECUTABLE_LINKER__Tetris_Debug src\CMakeFiles\Tetris.dir\Game.cpp.obj src\CMakeFiles\Tetris.dir\Tetromino.cpp.obj src\CMakeFiles\Tetris.dir\main.cpp.obj | ..\..\..\vcpkg\installed\x64-windows\debug\lib\sfml-graphics-d.lib ..\..\..\vcpkg\installed\x64-windows\debug\lib\sfml-window-d.lib ..\..\..\vcpkg\installed\x64-windows\debug\lib\sfml-system-d.lib
   FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = ..\..\..\vcpkg\installed\x64-windows\debug\lib\sfml-graphics-d.lib  ..\..\..\vcpkg\installed\x64-windows\debug\lib\sfml-window-d.lib  ..\..\..\vcpkg\installed\x64-windows\debug\lib\sfml-system-d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib

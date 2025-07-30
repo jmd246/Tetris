@@ -1,6 +1,17 @@
 # ninja log v5
-2	30	0	C:/Users/Owner/OneDrive/Desktop/Tetris/out/build/x64-Debug/CMakeFiles/cmake.verify_globs	fc980cc5c6cfe03
-1	983	7750765977768458	src/CMakeFiles/Tetris.dir/main.cpp.obj	59197d9aba6f472a
-0	9	0	clean	8c45b54705a541e8
-866	2441	7750768589127862	src/Tetris.exe	8b30b7af231073af
-1	866	7750768587731041	src/CMakeFiles/Tetris.dir/Tetromino.cpp.obj	b39734a4e13ecdd5
+2	29	0	C:/Users/Owner/OneDrive/Desktop/Tetris/out/build/x64-Debug/CMakeFiles/cmake.verify_globs	fc980cc5c6cfe03
+0	28	0	clean	8c45b54705a541e8
+1	884	7756090191417584	src/CMakeFiles/Tetris.dir/main.cpp.obj	59197d9aba6f472a
+884	2448	7756090192798643	src/Tetris.exe	61c280b0d498fe66
+10	1115	7756088844650261	src/CMakeFiles/Tetris.dir/Tetromino.cpp.obj	b39734a4e13ecdd5
+1	1163	7756088845140264	src/CMakeFiles/Tetris.dir/Game.cpp.obj	adf097019a7f8333
+2	32	0	C:/Users/Owner/OneDrive/Desktop/Tetris/out/build/x64-Debug/CMakeFiles/cmake.verify_globs	fc980cc5c6cfe03
+1	989	7756091725063475	src/CMakeFiles/Tetris.dir/main.cpp.obj	59197d9aba6f472a
+990	2556	7756091726559555	src/Tetris.exe	61c280b0d498fe66
+3	31	0	C:/Users/Owner/OneDrive/Desktop/Tetris/out/build/x64-Debug/CMakeFiles/cmake.verify_globs	fc980cc5c6cfe03
+5	1323	7756098496711130	src/CMakeFiles/Tetris.dir/Game.cpp.obj	adf097019a7f8333
+1	1333	7756098496811126	src/CMakeFiles/Tetris.dir/main.cpp.obj	59197d9aba6f472a
+1333	2990	7756098498550983	src/Tetris.exe	61c280b0d498fe66
+2	29	0	C:/Users/Owner/OneDrive/Desktop/Tetris/out/build/x64-Debug/CMakeFiles/cmake.verify_globs	fc980cc5c6cfe03
+1	1085	7756098725788486	src/CMakeFiles/Tetris.dir/main.cpp.obj	59197d9aba6f472a
+1085	2821	7756098727698480	src/Tetris.exe	61c280b0d498fe66

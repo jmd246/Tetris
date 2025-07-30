@@ -29,3 +29,29 @@ void Tetromino::draw(sf::RenderWindow& window, float blockSize) {
         }
     }
 }
+void Tetromino::rotateCounterClockWise() {
+    int   temp[4][4];
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            temp[3-j][i] = shape[i][j];
+        }
+    }
+    std::memcpy(shape, temp, sizeof(temp));
+}
+
+void Tetromino::rotateClockWise() {
+    int   temp[4][4];
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            temp[j][3 - i] = shape[i][j];
+        }
+    }
+    std::memcpy(shape, temp, sizeof(temp));
+}
+void Tetromino::move(int dx, int dy) {
+    position.x += dx;
+    position.y += dy;
+}
+void Tetromino::setPosition(sf::Vector2i pos) {
+    position = pos;
+}

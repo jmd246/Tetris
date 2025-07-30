@@ -1,12 +1,15 @@
 #ifndef TETROMINO_FACTORY_HPP
 #define TETROMINO_FACTORY_HPP
-#include <list>
 #include <cctype>
+#include    <iostream>
 #include "Tetromino.hpp"
 class TetrominoFactory {
 private:
-	TetrominoFactory() {}
-	std::list<Tetromino> tetrominos;
+    char letters[7] = { 'i','o','t','s','z','j','l' };
+	
+
+
+    TetrominoFactory() {}
 
 	//delete assignment and copy operators to prevent duplication
 	TetrominoFactory(const TetrominoFactory&) = delete;
@@ -17,11 +20,9 @@ public:
 		static	TetrominoFactory	instance;
 		return	instance;
 	}
-	std::list<Tetromino> getList() {
-		return	tetrominos;
-	}
+	
 	//IOTSZJL
-    void generateTetromino(char shapeLetter) {
+    Tetromino   generateTetromino(char shapeLetter) {
         shapeLetter = std::tolower(shapeLetter);
         switch (shapeLetter)
         {
@@ -32,8 +33,7 @@ public:
                     {0, 0, 0, 0},
                     {0, 0, 0, 0}
                 };
-                tetrominos.push_back(Tetromino::Tetromino(shapeLetter, IShape, { 3, 24 }, sf::Color::Cyan));
-                break;
+                return  Tetromino::Tetromino(shapeLetter, IShape, { 3, 0 }, sf::Color::Cyan);
             }
 
             case 'o': {
@@ -43,8 +43,7 @@ public:
                     {0, 1, 1, 0},
                     {0, 0, 0, 0}
                 };
-                tetrominos.push_back(Tetromino::Tetromino(shapeLetter, OShape, { 3, 21 }, sf::Color::Yellow));
-                break;
+                return  Tetromino::Tetromino(shapeLetter, OShape, { 3, 0 }, sf::Color::Yellow);
             }
 
             case 't': {
@@ -54,8 +53,7 @@ public:
                     {0, 1, 0, 0},
                     {0, 0, 0, 0}
                 };
-                tetrominos.push_back(Tetromino::Tetromino(shapeLetter, TShape, { 3, 3 }, sf::Color(128, 0, 128))); // Purple
-                break;
+                return  Tetromino(shapeLetter, TShape, { 3, 0 }, sf::Color(128, 0, 128)); // Purple
             }
 
             case 'j': {
@@ -65,8 +63,7 @@ public:
                     {0, 0, 1, 0},
                     {0, 0, 0, 0}
                 };
-                tetrominos.push_back(Tetromino::Tetromino(shapeLetter, JShape, { 3, 6 }, sf::Color::Blue));
-                break;
+                return  Tetromino(shapeLetter, JShape, { 3, 0 }, sf::Color::Blue);
             }
 
             case 'l': {
@@ -76,8 +73,7 @@ public:
                     {1, 0, 0, 0},
                     {0, 0, 0, 0}
                 };
-                tetrominos.push_back(Tetromino::Tetromino(shapeLetter, LShape, { 3, 9 }, sf::Color(255, 165, 0))); // Orange
-                break;
+                return  Tetromino(shapeLetter, LShape, { 3, 0 }, sf::Color(255, 165, 0)); // Orange
             }
 
             case 's': {
@@ -87,8 +83,7 @@ public:
                     {1, 1, 0, 0},
                     {0, 0, 0, 0}
                 };
-                tetrominos.push_back(Tetromino::Tetromino(shapeLetter, SShape, { 3, 15 }, sf::Color::Green));
-                break;
+                   return Tetromino(shapeLetter, SShape, { 3, 0 }, sf::Color::Green);
             }
 
             case 'z': {
@@ -98,10 +93,15 @@ public:
                     {0, 1, 1, 0},
                     {0, 0, 0, 0}
                 };
-                tetrominos.push_back(Tetromino::Tetromino(shapeLetter, ZShape, { 3, 12 }, sf::Color::Red));
-                break;
+                return  Tetromino(shapeLetter, ZShape, { 3, 0 }, sf::Color::Red);
             }
         }
+    }
+    Tetromino   randomTetromino() {
+        std::srand(std::time(nullptr));
+        uint8_t randIndex = std::rand() % 7;
+        std::cout << letters[randIndex];
+        return  generateTetromino(letters[randIndex]);
     }
 
 };
