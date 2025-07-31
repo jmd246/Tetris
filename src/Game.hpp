@@ -10,17 +10,19 @@
 class Game {
 public:
     Game();
-    void update();
-    void draw(sf::RenderWindow& window);
+    void play();
+    void draw();
     void handleInput(const sf::Event& event);
 
 private:
     Board board;
-
-    std::unique_ptr<Tetromino> currentPiece; // FIX: avoids default constructor issue
+    sf::RenderWindow  window;
     sf::Clock gravityClock;
-    float dropDelay = 0.5f; // gravity speed (in seconds)
-
+    float fallDelay = 0.5f; // gravity speed (in seconds)
+    const float blockSize = 15.0f;
+    int dy = 1;
+    sf::Clock fallTimer;
+    std::optional<Tetromino>  active;
     void spawnNewPiece();
     void lockPiece();
 };

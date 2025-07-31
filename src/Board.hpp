@@ -7,7 +7,7 @@ class Board
 public:
 	Board() {
 		//vector	of	size	heigth	of	vectors	of	size	width	all	elements	set	to	0
-		grid = std::vector<std::vector<int>>(height, std::vector<int>(width,0));
+		grid = std::vector<std::vector<char>>(height, std::vector<char>(width,'~'));
 	}
     int getCell(int row, int col) const {
         return grid[row][col];
@@ -34,7 +34,7 @@ public:
         for (int row = height - 1; row >= 0; --row) {
             bool full = true;
             for (int col = 0; col < width; ++col) {
-                if (grid[row][col] == 0) {
+                if (grid[row][col] == '~') {
                     full = false;
                     break;
                 }
@@ -45,14 +45,14 @@ public:
                 for (int r = row; r > 0; --r) {
                     grid[r] = grid[r - 1];
                 }
-                grid[0] = std::vector<int>(width, 0); // topmost row is now empty
+                grid[0] = std::vector<char>(width, '~'); // topmost row is now empty
                 row++; // recheck this row again after dropping
             }
         }
     }
     void reset() {
         for (auto& row : grid)
-            std::fill(row.begin(), row.end(), 0);
+            std::fill(row.begin(), row.end(), '~');
     }
     bool    canMove(const Tetromino& t, sf::Vector2i delta) const {
         for (int row = 0; row < 4; ++row) {
@@ -67,7 +67,7 @@ public:
                     return false;
 
                 // Check for collision with placed blocks
-                if (grid[newY][newX] != 0)
+                if (grid[newY][newX] != '~')
                     return false;
             }
         }
@@ -82,25 +82,54 @@ public:
 
                     if (x >= 0 && x < width && y >= 0 && y < height) {
                         // using int:
-                        grid[y][x] = 1;
+                        //grid[y][x] = 1;
 
                         // Or if using char-based grid:
-                        // grid[y][x] = tetro.shapeLetter;
+                        grid[y][x] = tetro.shapeLetter;
                     }
                 }
             }
         }
     }
 
+    sf::Color getColor(int x,int  y) {
+        char  type = grid[y][x];
+        switch (type)
+        {
+            case    'i':
+                return  sf::Color::Cyan;
+            case    'o':
+                return  sf::Color::Yellow;
+            case    's':
+                return  sf::Color::Green;
+            case    't': {
+                sf::Color  purple = sf::Color(128, 0, 128);
+                return  purple;
+            }
+            case    'z':
+                return  sf::Color::Red;
+            case    'l': {
+                sf::Color orange = sf::Color(256, 165, 0);
+                return  orange;
+            }
+            case    'j':
+                return  sf::Color::Blue;
+            default: {
+                sf::Color gray = sf::Color(100, 100, 100);
+                return  gray; 
+            }
+        }
+
+    }
+
     void draw(sf::RenderWindow& window, float blockSize) {
         sf::RectangleShape block(sf::Vector2f(blockSize, blockSize));
         block.setOutlineThickness(-1);
         block.setOutlineColor(sf::Color::Black);
-        block.setFillColor(sf::Color(100, 100, 100)); // Default gray for filled blocks
-
         for (int y = 0; y < height; ++y) {
             for (int x = 0; x < width; ++x) {
                 if (grid[y][x]) {
+                    block.setFillColor(getColor(x,y)); // Default gray for filled blocks
                     block.setPosition({ x * blockSize, y * blockSize });
                     window.draw(block);
                 }
@@ -121,7 +150,7 @@ public:
 
 private:
 	const int width = 10, height = 22;
-	std::vector<std::vector<int>>	grid;
+	std::vector<std::vector<char>>	grid;
 };
 
 #endif // !BOARD_HPP
